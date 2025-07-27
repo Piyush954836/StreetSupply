@@ -8,7 +8,7 @@ const ProtectedSupplierRoute = () => {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/supplier/check-session');
+        const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/supplier/check-session`);
         setIsAuth(res.data.authenticated);
       } catch {
         setIsAuth(false);

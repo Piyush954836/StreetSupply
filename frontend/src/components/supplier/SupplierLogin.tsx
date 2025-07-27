@@ -14,7 +14,7 @@ const SupplierLogin = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/supplier/login",
+        `${process.env.REACT_APP_API_BASE_URL}/api/supplier/login`,
         { email, password },
         { withCredentials: true }
       );

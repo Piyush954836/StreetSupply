@@ -70,7 +70,7 @@ const SupplierRegister = () => {
   e.preventDefault();
 
   try {
-    const response = await axios.post("http://localhost:5000/api/supplier/register", formData);
+    const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/supplier/register`, formData);
 
     if (response.status === 201) {
       window.alert("Registration successful. Please login.");

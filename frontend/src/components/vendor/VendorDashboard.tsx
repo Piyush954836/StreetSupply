@@ -20,7 +20,7 @@ export const VendorDashboard = () => {
   useEffect(() => {
     const fetchVendor = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/vendor/me", {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/vendor/me`, {
           method: "GET",
           credentials: "include",
           headers: {
@@ -46,7 +46,7 @@ export const VendorDashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/vendor/logout", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/vendor/logout`, {
         method: "POST",
         credentials: "include",
       });

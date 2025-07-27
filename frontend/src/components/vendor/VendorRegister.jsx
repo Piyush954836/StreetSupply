@@ -23,7 +23,7 @@ const VendorRegister = () => {
   try {
     const foodTypesArray = formData.foodTypes.split(",").map((f) => f.trim());
     const res = await axios.post(
-      "http://localhost:5000/api/vendor/register",
+      `${process.env.REACT_APP_API_BASE_URL}/api/vendor/register`,
       {
         ...formData,
         foodTypes: foodTypesArray,

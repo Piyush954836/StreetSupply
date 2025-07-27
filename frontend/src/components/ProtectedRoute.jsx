@@ -9,7 +9,7 @@ const ProtectedRoute = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/vendor/isVendorAuth", {
+        const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/vendor/isVendorAuth`, {
           withCredentials: true,
         });
 

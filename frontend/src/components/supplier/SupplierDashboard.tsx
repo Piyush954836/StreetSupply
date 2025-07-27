@@ -13,13 +13,13 @@ const SupplierDashboard = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/supplier/check-session', { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/supplier/check-session`, { withCredentials: true })
       .then((res) => {
         if (!res.data.authenticated) {
           navigate('/supplier/login');
         } else {
           axios
-            .get('http://localhost:5000/api/supplier/dashboard', { withCredentials: true })
+            .get(`${process.env.REACT_APP_API_BASE_URL}/api/supplier/dashboard`, { withCredentials: true })
             .then((res) => setSupplier(res.data.supplier))
             .catch(() => navigate('/supplier/login'));
         }
@@ -28,7 +28,7 @@ const SupplierDashboard = () => {
   }, []);
 
   const handleLogout = async () => {
-    await axios.post('http://localhost:5000/api/supplier/logout', { withCredentials: true });
+    await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/supplier/logout`, { withCredentials: true });
     window.location.href = '/';
   };
 
